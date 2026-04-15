@@ -1,0 +1,49 @@
+product_ID,product_name,category,cost_price,selling_price
+P001,Wireless Mouse,Electronics,202,418
+P002,Mechanical Keyboard,Electronics,448,515
+P003,Bluetooth Speaker,Electronics,370,551
+P004,USB-C Charger,Electronics,206,344
+P005,LED Monitor 24 inch,Electronics,171,280
+P006,Gaming Headset,Electronics,288,351
+P007,External Hard Drive 1TB,Electronics,120,411
+P008,Smartphone Stand,Electronics,202,501
+P009,Laptop Backpack,Electronics,221,279
+P010,Fitness Tracker,Electronics,314,453
+P011,Men's Casual Shirt,Clothing,430,532
+P012,Women's Kurti,Clothing,187,366
+P013,Denim Jeans,Clothing,472,605
+P014,Sports Shoes,Clothing,199,340
+P015,Leather Wallet,Clothing,459,619
+P016,Sunglasses,Clothing,251,488
+P017,Towel Set,Clothing,230,478
+P018,Bed Sheet,Clothing,249,470
+P019,Pillow Cover,Clothing,408,465
+P020,Blanket,Clothing,357,581
+P021,Kitchen Knife Set,Home & Kitchen,443,527
+P022,Non-stick Frying Pan,Home & Kitchen,393,648
+P023,Electric Kettle,Home & Kitchen,485,615
+P024,Mixer Grinder,Home & Kitchen,291,504
+P025,Rice Cooker,Home & Kitchen,376,475
+P026,Water Bottle,Home & Kitchen,260,413
+P027,Lunch Box,Home & Kitchen,413,594
+P028,Coffee Mug,Home & Kitchen,121,172
+P029,Desk Organizer,Home & Kitchen,352,535
+P030,Table Lamp,Home & Kitchen,335,438
+P031,Wall Clock,Home & Kitchen,444,599
+P032,Office Chair,Home & Kitchen,148,201
+P033,Organic Rice 5kg,Grocery,158,261
+P034,Wheat Flour 10kg,Grocery,269,539
+P035,Cooking Oil 1L,Grocery,287,527
+P036,Sugar 1kg,Grocery,370,565
+P037,Salt Pack,Grocery,289,556
+P038,Tea Powder,Grocery,274,367
+P039,Instant Coffee,Grocery,150,361
+P040,Biscuits Pack,Grocery,463,714
+P041,Chocolate Box,Grocery,154,393
+P042,Toothpaste,Personal Care,343,620
+P043,Shampoo Bottle,Personal Care,419,482
+P044,Bath Soap,Personal Care,230,374
+P045,Hand Sanitizer,Personal Care,406,503
+P046,Face Wash,Personal Care,234,298
+P047,Mobile Charger,Electronics,120,369
+P048,Power Bank,Electronics,428,683
