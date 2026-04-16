@@ -18,11 +18,11 @@ Create a complete business view for analysis.
 
 Total Sales per Product
 SELECT 
-    p.Product_Name,
-    SUM(s.Units_Sold) AS Total_Sales
+    p.product_name,
+    SUM(s.units_sold) AS Total_Sales
 FROM sales s
-JOIN products p ON s.Product_ID = p.Product_ID
-GROUP BY p.Product_Name
+JOIN products p ON s.product_ID = p.product_ID
+GROUP BY p.product_name
 ORDER BY Total_Sales DESC;
 
 Insight:
@@ -32,11 +32,11 @@ Which products are selling the most?
 
 Top 5 Best-Selling Products
 SELECT 
-    p.Product_Name,
-    SUM(s.Units_Sold) AS Total_Sales
+    p.product_name,
+    SUM(s.units_sold) AS Total_Sales
 FROM sales s
-JOIN products p ON s.Product_ID = p.Product_ID
-GROUP BY p.Product_Name
+JOIN products p ON s.product_ID = p.product_ID
+GROUP BY p.product_name
 ORDER BY Total_Sales DESC
 LIMIT 5;
 
@@ -47,12 +47,12 @@ Focus on top-performing products (Pareto principle)
 
 Low Stock Products
 SELECT 
-    p.Product_Name,
-    i.Stock_Available
+    p.product_name,
+    i.stock_available
 FROM inventory i
-JOIN products p ON i.Product_ID = p.Product_ID
-WHERE i.Stock_Available < 100
-ORDER BY i.Stock_Available ASC;
+JOIN products p ON i.product_ID = p.product_ID
+WHERE i.stock_available < 100
+ORDER BY i.stock_available ASC;
 
 Insights:
 
@@ -61,11 +61,11 @@ Which products are close to stockout?
 
 Revenue by Category
 SELECT 
-    p.Category,
-    SUM(s.Revenue) AS Total_Revenue
+    p.category,
+    SUM(s.revenue) AS Total_Revenue
 FROM sales s
-JOIN products p ON s.Product_ID = p.Product_ID
-GROUP BY p.Category
+JOIN products p ON s.product_ID = p.product_ID
+GROUP BY p.category
 ORDER BY Total_Revenue DESC;
 
 Insights:
@@ -75,8 +75,8 @@ Which category generates most revenue?
 
 Monthly Sales Trend
 SELECT 
-    MONTH(Date) AS Month,
-    SUM(Revenue) AS Total_Revenue
+    MONTH(date) AS Month,
+    SUM(revenue) AS Total_Revenue
 FROM sales
 GROUP BY Month
 ORDER BY Month;
@@ -88,14 +88,14 @@ How sales change over time?
 
 Inventory Performance
 SELECT 
-    p.Product_Name,
-    SUM(s.Units_Sold) AS Total_Sales,
-    i.Stock_Available,
-    (SUM(s.Units_Sold) / i.Stock_Available) AS Turnover
+    p.product_name,
+    SUM(s.units_sold) AS Total_Sales,
+    i.stock_available,
+    (SUM(s.units_sold) / i.stock_available) AS Turnover
 FROM sales s
-JOIN products p ON s.Product_ID = p.Product_ID
-JOIN inventory i ON s.Product_ID = i.Product_ID
-GROUP BY p.Product_Name, i.Stock_Available
+JOIN products p ON s.product_ID = p.product_ID
+JOIN inventory i ON s.product_ID = i.product_ID
+GROUP BY p.product_name, i.stock_available
 ORDER BY Turnover DESC;
 
 Insights:
@@ -105,14 +105,14 @@ Which products are selling fast and may run out soon?
 
 Identify High-Risk Products
 SELECT 
-    p.Product_Name,
-    i.Stock_Available,
-    SUM(s.Units_Sold)/COUNT(DISTINCT s.Date) AS Daily_Avg_Sales,
-    (i.Stock_Available / (SUM(s.Units_Sold)/COUNT(DISTINCT s.Date))) AS Days_of_Stock
+    p.product_name,
+    i.stock_available,
+    SUM(s.units_sold)/COUNT(DISTINCT s.date) AS Daily_Avg_Sales,
+    (i.stock_available / (SUM(s.units_sold)/COUNT(DISTINCT s.date))) AS Days_of_Stock
 FROM sales s
-JOIN products p ON s.Product_ID = p.Product_ID
-JOIN inventory i ON s.Product_ID = i.Product_ID
-GROUP BY p.Product_Name, i.Stock_Available
+JOIN products p ON s.product_ID = p.product_ID
+JOIN inventory i ON s.product_ID = i.product_ID
+GROUP BY p.product_name, i.stock_available
 HAVING Days_of_Stock < 5
 ORDER BY Days_of_Stock ASC;
 
@@ -123,20 +123,20 @@ Which products will run out soon?
 
 Reorder Suggestion Query
 SELECT 
-    p.Product_Name,
-    i.Stock_Available,
-    i.Lead_Time,
-    (SUM(s.Units_Sold)/COUNT(DISTINCT s.Date)) AS Daily_Avg_Sales,
-    ((SUM(s.Units_Sold)/COUNT(DISTINCT s.Date)) * i.Lead_Time + 20) AS Reorder_Point,
+    p.product_name,
+    i.stock_available,
+    i.lead_time,
+    (SUM(s.units_sold)/COUNT(DISTINCT s.date)) AS Daily_Avg_Sales,
+    ((SUM(s.units_sold)/COUNT(DISTINCT s.date)) * i.lead_time + 20) AS Reorder_Point,
     CASE 
-        WHEN i.Stock_Available < ((SUM(s.Units_Sold)/COUNT(DISTINCT s.Date)) * i.Lead_Time + 20)
+        WHEN i.stock_available < ((SUM(s.units_sold)/COUNT(DISTINCT s.date)) * i.lead_time + 20)
         THEN 'Reorder Needed'
         ELSE 'Sufficient'
     END AS Reorder_Status
 FROM sales s
-JOIN products p ON s.Product_ID = p.Product_ID
-JOIN inventory i ON s.Product_ID = i.Product_ID
-GROUP BY p.Product_Name, i.Stock_Available, i.Lead_Time;
+JOIN products p ON s.product_ID = p.product_ID
+JOIN inventory i ON s.product_ID = i.product_ID
+GROUP BY p.product_name, i.stock_available, i.lead_time;
 
 Insights:
 
@@ -145,13 +145,13 @@ Automates inventory decisions.
 
 Top Contributing Products to Revenue
 SELECT 
-    p.Product_Name,
-    SUM(s.Revenue) AS Total_Revenue,
-    ROUND(100 * SUM(s.Revenue) / 
-        (SELECT SUM(Revenue) FROM sales), 2) AS Revenue_Percentage
+    p.product_name,
+    SUM(s.evenue) AS Total_Revenue,
+    ROUND(100 * SUM(s.revenue) / 
+        (SELECT SUM(revenue) FROM sales), 2) AS Revenue_Percentage
 FROM sales s
-JOIN products p ON s.Product_ID = p.Product_ID
-GROUP BY p.Product_Name
+JOIN products p ON s.product_ID = p.product_ID
+GROUP BY p.product_name
 ORDER BY Total_Revenue DESC;
 
 Insights:
