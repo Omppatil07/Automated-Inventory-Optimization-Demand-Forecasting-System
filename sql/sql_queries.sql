@@ -7,33 +7,32 @@ SELECT
     p.product_name,
     p.category,
     i.stock_available,
-    s.units_sold,
+    s.unit_sold,
     s.revenue
 FROM sales s
 JOIN products p ON s.product_ID = p.product_ID
 JOIN inventory i ON s.product_ID = i.product_ID;
 
-Create a complete business view for analysis.
+- Create a complete business view for analysis.
 
 
 Total Sales per Product
 SELECT 
     p.product_name,
-    SUM(s.units_sold) AS Total_Sales
+    SUM(s.unit_sold) AS Total_Sales
 FROM sales s
 JOIN products p ON s.product_ID = p.product_ID
 GROUP BY p.product_name
 ORDER BY Total_Sales DESC;
 
 Insight:
-
-Which products are selling the most?
+- Which products are selling the most?
 
 
 Top 5 Best-Selling Products
 SELECT 
     p.product_name,
-    SUM(s.units_sold) AS Total_Sales
+    SUM(s.unit_sold) AS Total_Sales
 FROM sales s
 JOIN products p ON s.product_ID = p.product_ID
 GROUP BY p.product_name
@@ -41,8 +40,7 @@ ORDER BY Total_Sales DESC
 LIMIT 5;
 
 Insight:
-
-Focus on top-performing products (Pareto principle)
+- Focus on top-performing products (Pareto principle)
 
 
 Low Stock Products
@@ -55,8 +53,7 @@ WHERE i.stock_available < 100
 ORDER BY i.stock_available ASC;
 
 Insights:
-
-Which products are close to stockout?
+- Which products are close to stockout?
 
 
 Revenue by Category
@@ -69,8 +66,7 @@ GROUP BY p.category
 ORDER BY Total_Revenue DESC;
 
 Insights:
-
-Which category generates most revenue?
+- Which category generates most revenue?
 
 
 Monthly Sales Trend
@@ -82,16 +78,15 @@ GROUP BY Month
 ORDER BY Month;
 
 Insights:
-
-How sales change over time?
+- How sales change over time?
 
 
 Inventory Performance
 SELECT 
     p.product_name,
-    SUM(s.units_sold) AS Total_Sales,
+    SUM(s.unit_sold) AS Total_Sales,
     i.stock_available,
-    (SUM(s.units_sold) / i.stock_available) AS Turnover
+    (SUM(s.unit_sold) / i.stock_available) AS Turnover
 FROM sales s
 JOIN products p ON s.product_ID = p.product_ID
 JOIN inventory i ON s.product_ID = i.product_ID
@@ -99,16 +94,15 @@ GROUP BY p.product_name, i.stock_available
 ORDER BY Turnover DESC;
 
 Insights:
-
-Which products are selling fast and may run out soon?
+- Which products are selling fast and may run out soon?
 
 
 Identify High-Risk Products
 SELECT 
     p.product_name,
     i.stock_available,
-    SUM(s.units_sold)/COUNT(DISTINCT s.date) AS Daily_Avg_Sales,
-    (i.stock_available / (SUM(s.units_sold)/COUNT(DISTINCT s.date))) AS Days_of_Stock
+    SUM(s.unit_sold)/COUNT(DISTINCT s.date) AS Daily_Avg_Sales,
+    (i.stock_available / (SUM(s.unit_sold)/COUNT(DISTINCT s.date))) AS Days_of_Stock
 FROM sales s
 JOIN products p ON s.product_ID = p.product_ID
 JOIN inventory i ON s.product_ID = i.product_ID
@@ -117,8 +111,7 @@ HAVING Days_of_Stock < 5
 ORDER BY Days_of_Stock ASC;
 
 Insights:
-
-Which products will run out soon?
+- Which products will run out soon?
 
 
 Reorder Suggestion Query
@@ -126,8 +119,8 @@ SELECT
     p.product_name,
     i.stock_available,
     i.lead_time,
-    (SUM(s.units_sold)/COUNT(DISTINCT s.date)) AS Daily_Avg_Sales,
-    ((SUM(s.units_sold)/COUNT(DISTINCT s.date)) * i.lead_time + 20) AS Reorder_Point,
+    (SUM(s.unit_sold)/COUNT(DISTINCT s.date)) AS Daily_Avg_Sales,
+    ((SUM(s.unit_sold)/COUNT(DISTINCT s.date)) * i.lead_time + 20) AS Reorder_Point,
     CASE 
         WHEN i.stock_available < ((SUM(s.units_sold)/COUNT(DISTINCT s.date)) * i.lead_time + 20)
         THEN 'Reorder Needed'
@@ -139,14 +132,13 @@ JOIN inventory i ON s.product_ID = i.product_ID
 GROUP BY p.product_name, i.stock_available, i.lead_time;
 
 Insights:
-
-Automates inventory decisions.
+- Automates inventory decisions.
 
 
 Top Contributing Products to Revenue
 SELECT 
     p.product_name,
-    SUM(s.evenue) AS Total_Revenue,
+    SUM(s.revenue) AS Total_Revenue,
     ROUND(100 * SUM(s.revenue) / 
         (SELECT SUM(revenue) FROM sales), 2) AS Revenue_Percentage
 FROM sales s
@@ -155,8 +147,7 @@ GROUP BY p.product_name
 ORDER BY Total_Revenue DESC;
 
 Insights:
-
-Which products drive most of the revenue?
+- Which products drive most of the revenue?
 
 
 Summary:
