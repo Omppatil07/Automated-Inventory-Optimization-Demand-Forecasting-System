@@ -1,49 +1,49 @@
-product_ID,stock_available,Lead_Time,supplier
-P001,264,9,D-Mart Supply Services
-P002,301,6,Amazon Wholesale India
-P003,239,4,ITC Distribution Network
-P004,345,5,Tata Consumer Distribution
-P005,262,9,Future Retail Suppliers
-P006,257,7,Metro Cash & Carry India
-P007,286,4,Aditya Birla Supply Chain
-P008,387,4,ITC Distribution Network
-P009,416,2,Flipkart Wholesale
-P010,102,4,Future Retail Suppliers
-P011,329,6,D-Mart Supply Services
-P012,459,8,Metro Cash & Carry India
-P013,266,7,D-Mart Supply Services
-P014,301,4,Reliance Retail Supply
-P015,237,2,Reliance Retail Supply
-P016,429,6,Metro Cash & Carry India
-P017,90,3,Metro Cash & Carry India
-P018,206,8,Flipkart Wholesale
-P019,64,8,Metro Cash & Carry India
-P020,350,7,Amazon Wholesale India
-P021,114,8,D-Mart Supply Services
-P022,394,4,ITC Distribution Network
-P023,376,2,BigBasket Vendor Network
-P024,58,8,Metro Cash & Carry India
-P025,393,8,Aditya Birla Supply Chain
-P026,178,3,Reliance Retail Supply
-P027,185,3,Amazon Wholesale India
-P028,112,5,Future Retail Suppliers
-P029,188,6,BigBasket Vendor Network
-P030,130,4,ITC Distribution Network
-P031,441,8,BigBasket Vendor Network
-P032,212,9,Metro Cash & Carry India
-P033,468,8,Flipkart Wholesale
-P034,338,2,Reliance Retail Supply
-P035,428,5,Reliance Retail Supply
-P036,310,6,Future Retail Suppliers
-P037,280,9,Flipkart Wholesale
-P038,90,5,D-Mart Supply Services
-P039,77,7,Tata Consumer Distribution
-P040,184,6,Amazon Wholesale India
-P041,250,8,Reliance Retail Supply
-P042,377,8,Aditya Birla Supply Chain
-P043,317,6,Reliance Retail Supply
-P044,467,8,BigBasket Vendor Network
-P045,82,4,Reliance Retail Supply
-P046,97,6,Reliance Retail Supply
-P047,456,5,Tata Consumer Distribution
-P048,111,6,Tata Consumer Distribution
+product_ID,stock_available,lead_time,supplier
+P001,264,9.00,D-Mart Supply Services
+P002,301,6.00,Amazon Wholesale India
+P003,239,4.00,ITC Distribution Network
+P004,345,5.00,Tata Consumer Distribution
+P005,262,9.00,Future Retail Suppliers
+P006,257,7.00,Metro Cash & Carry India
+P007,286,4.00,Aditya Birla Supply Chain
+P008,387,4.00,ITC Distribution Network
+P009,416,2.00,Flipkart Wholesale
+P010,102,4.00,Future Retail Suppliers
+P011,329,6.00,D-Mart Supply Services
+P012,459,8.00,Metro Cash & Carry India
+P013,266,7.00,D-Mart Supply Services
+P014,301,4.00,Reliance Retail Supply
+P015,237,2.00,Reliance Retail Supply
+P016,429,6.00,Metro Cash & Carry India
+P017,90,3.00,Metro Cash & Carry India
+P018,206,8.00,Flipkart Wholesale
+P019,64,8.00,Metro Cash & Carry India
+P020,350,7.00,Amazon Wholesale India
+P021,114,8.00,D-Mart Supply Services
+P022,394,4.00,ITC Distribution Network
+P023,376,2.00,BigBasket Vendor Network
+P024,58,8.00,Metro Cash & Carry India
+P025,393,8.00,Aditya Birla Supply Chain
+P026,178,3.00,Reliance Retail Supply
+P027,185,3.00,Amazon Wholesale India
+P028,112,5.00,Future Retail Suppliers
+P029,188,6.00,BigBasket Vendor Network
+P030,130,4.00,ITC Distribution Network
+P031,441,8.00,BigBasket Vendor Network
+P032,212,9.00,Metro Cash & Carry India
+P033,468,8.00,Flipkart Wholesale
+P034,338,2.00,Reliance Retail Supply
+P035,428,5.00,Reliance Retail Supply
+P036,310,6.00,Future Retail Suppliers
+P037,280,9.00,Flipkart Wholesale
+P038,90,5.00,D-Mart Supply Services
+P039,77,7.00,Tata Consumer Distribution
+P040,184,6.00,Amazon Wholesale India
+P041,250,8.00,Reliance Retail Supply
+P042,377,8.00,Aditya Birla Supply Chain
+P043,317,6.00,Reliance Retail Supply
+P044,467,8.00,BigBasket Vendor Network
+P045,82,4.00,Reliance Retail Supply
+P046,97,6.00,Reliance Retail Supply
+P047,456,5.00,Tata Consumer Distribution
+P048,111,6.00,Tata Consumer Distribution
