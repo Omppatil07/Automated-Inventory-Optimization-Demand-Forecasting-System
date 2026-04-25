@@ -86,6 +86,10 @@ This project is an end-to-end data analytics solution designed to optimize inven
 
 ---
 
+## 📊 Dashboard Preview
+
+### Main Dashboard
+![Main](images/Dashboard.png)
 
 ---
 
